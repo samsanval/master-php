@@ -1,5 +1,12 @@
 <?php require_once 'helpers/helpers.php'; ?>
 <aside id="sidebar">
+            <div id="buscador" class="bloque">
+                <h3>Buscar</h3>
+                <form action="search.php" method="POST">
+                <input type="text" name="busqueda"/>
+                <input type="submit" value="Buscar" />
+                </form>
+            </div>
              <?php if(isset($_SESSION['usuario'])) :?>
             <div id="mensaje" class="bloque">
                 <h3><?=$_SESSION['usuario']['nombre'] . ' '. $_SESSION['usuario']['apellidos']; ?></h3>
