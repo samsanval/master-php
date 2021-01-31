@@ -3,3 +3,8 @@ Realización del master de PHP desde cero, bases de datos, SQL, MySQL, POO, MVC,
 
 ## Tecnologías a aprender
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/3/31/Webysther_20160423_-_Elephpant.svg)
+```php
+<?php
+  echo 'Aprendiendo PHP';
+?>
+```
