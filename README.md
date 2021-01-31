@@ -17,6 +17,10 @@ SET php = true,
     laravel=true,
     symfony=true,
     wordpress=true
-WHERE knowledge = false
+WHERE curso_terminado = true
 ```
+
+## Herramientas utilizadas
+![alt_text](https://upload.wikimedia.org/wikipedia/commons/2/2d/Visual_Studio_Code_1.18_icon.svg)
+![alt_text](https://www.santiagobarrionuevo.com/wp-content/uploads/2014/08/WampServer-logo.png)
 Se irá añadiendo conforme vaya avanzando en el curso
