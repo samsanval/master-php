@@ -8,8 +8,7 @@ function showErrors($errores, $campo){
 }
 function deleteErrors(){
     $_SESSION['errores'] = NULL;
-    $unset = session_unset();
-    return $unset;
+    return true;
 }
 
 function getCategorias($db){

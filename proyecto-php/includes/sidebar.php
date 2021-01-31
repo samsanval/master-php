@@ -5,7 +5,7 @@
                 <h3><?=$_SESSION['usuario']['nombre'] . ' '. $_SESSION['usuario']['apellidos']; ?></h3>
                 <a href="createBlogEntry.php" class=" boton boton-verde">Crear Entrada</a>
                 <a href="createCategory.php" class="boton">Crear Categoria</a>
-                <a href="logout.php" class="boton boton-naranja">Mis datos</a>
+                <a href="myData.php" class="boton boton-naranja">Mis datos</a>
                 <a href="logout.php" class="boton boton-rojo">Logout</a>
             </div>
             <?php else: ?>
