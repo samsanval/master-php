@@ -11,6 +11,8 @@ endif; ?>
 <?php require_once('includes/sidebar.php'); ?>
 
 <div id="principal">
+    <h1>Entradas Encontradas</h1>
+    <article class="entrada">
         <?php while(($entrada = mysqli_fetch_assoc($entradas))): ?>
         <a href="blogEntry.php?id=<?= $entrada['id'];?>">
             <h2><?php echo $entrada['titulo']; ?></h2>
