@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'aa0f3f81947a0748a75656ea7fb346cb7a58531d',
+    'reference' => 'b415483fdb11c39d5e6ec0cbb6b714050deca144',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,25 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'aa0f3f81947a0748a75656ea7fb346cb7a58531d',
+      'reference' => 'b415483fdb11c39d5e6ec0cbb6b714050deca144',
+    ),
+    'firephp/firephp-core' => 
+    array (
+      'pretty_version' => 'v0.5.3',
+      'version' => '0.5.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2585b6868fe7d3a9d1432b738c3cc547444d0348',
+    ),
+    'masterexploder/phpthumb' => 
+    array (
+      'pretty_version' => '2.1',
+      'version' => '2.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '01f6aa65aa3d136e175f67da2b4ea3e316770d02',
     ),
     'spipu/html2pdf' => 
     array (
