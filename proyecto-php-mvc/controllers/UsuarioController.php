@@ -12,8 +12,8 @@ class UsuarioController{
         require_once('views/usuario/register.php');
     }
     public function save(){
-        if(!$this->checkPost()){
-            header('Location:'.BASE_URL.'/usuario/registerUser');
+        if(!$this->checkFormPost()){
+            return header('Location:'.BASE_URL.'/usuario/registerUser');
         }
         $usuario = new Usuario();
         $usuario->setNombre($_POST['nombre']);
@@ -31,12 +31,51 @@ class UsuarioController{
         header('Location:'.BASE_URL.'/usuario/registerUser');
 
     }
-    //Guard clauses
-    private function checkPost(){
-        return isset($_POST) && checkPostValues();
+
+    public function login(){
+        if(!$this->checkLoginPost()){
+            return header('Location:'.BASE_URL);
+        }
+        $usuario = new Usuario();
+        $usuario->setEmail($_POST['email']);
+        $login= $usuario->login($usuario->getEmail(),$_POST['password']);
+        if($login){
+            $_SESSION['login'] = 'successed';
+            if($login->rol =='admin'){
+                $_SESSION['admin'] = true;
+            }
+        }
+        else{
+            $_SESSION['login'] = 'failed';
+        }
+        return header('Location:'.BASE_URL);
+
+
     }
-    private function checkPostValues(){
+
+    public function unlogin(){
+        if(!isset($_SESSION['login'])){
+            return false;
+        }
+        unset($_SESSION['login']);
+        if(isset($_SESSION['admin'])){
+            unset($_SESSION['admin']);
+        }
+        return header('Location:'.BASE_URL);
+
+    }
+    //Guard clauses
+    private function checkFormPost(){
+        return isset($_POST) && $this->checkFormPostValues();
+    }
+    private function checkLoginPost(){
+        return isset($_POST) && $this->checkLoginPostValues();
+    }
+    private function checkFormPostValues(){
         return isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['email'])
             && isset($_POST['password']);
+    }
+    private function checkLoginPostValues(){
+        return isset($_POST['email'])&& isset($_POST['password']);
     }
 }

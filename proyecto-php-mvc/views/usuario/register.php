@@ -2,7 +2,6 @@
 <?php if(isset($_SESSION['register']) && $_SESSION['register']=='completed'):?>
 <?="<strong>Registro Completado</strong>"; ?>
 <?php endif; ?>
-?>
 <?php Utils::deleteSession('register'); ?>
 <form action="<?=BASE_URL?>/usuario/save" method="post">
     <label for="nombre">Nombre</label>
