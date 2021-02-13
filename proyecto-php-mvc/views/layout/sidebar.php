@@ -17,10 +17,13 @@
                 <?php endif; ?>
                 </div>
                 <ul>
+                <?php if(isset($_SESSION['login']) && $_SESSION['login'] == 'successed'): ?>
                     <a href="<?=BASE_URL.'/usuario/registerUser'?>"></a>
                         <li><a href="#">Mis pedidos</a></li>
+                    <li><a href="<?=BASE_URL.'/producto/gestion'?>">Gestionar productos</a></li>
                     <li><a href="">Gestionar pedidos</a></li>
                     <li><a href="<?=BASE_URL.'/categoria/index'?>">Gestionar categorias</a></li>
+                <?php endif; ?>
                 </ul>
             </aside>
             <div id="central">

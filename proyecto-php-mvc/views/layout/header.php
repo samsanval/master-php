@@ -18,7 +18,7 @@
         <nav id="menu">
             <ul>
                 <li>
-                    <a href="#">Inicio</a>
+                    <a href="<?=BASE_URL?>">Inicio</a>
                 </li>
                 <?php while($cat = $categorias->fetch_object()): ?>
                     <li>
