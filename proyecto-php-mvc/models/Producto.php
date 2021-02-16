@@ -209,11 +209,20 @@ class Producto{
         $productos = $this->db->query($query);
         return $productos;
     }
+    public function getAllByCategory($categoryId){
+        $query = "SELECT * FROM productos WHERE categoria_id = {$categoryId} ORDER BY id DESC";
+        $productos = $this->db->query($query);
+        return $productos;
+    }
 
     public function findById($id){
         $query = "SELECT * FROM productos WHERE id = $id ORDER BY id DESC";
         $productos = $this->db->query($query);
         return $productos->fetch_object();
+    }
+    public function getRandom(){
+        $productos = $this->db->query("SELECT * FROM productos ORDER BY  RAND() LIMIT 6");
+        return $productos;
     }
 
     public function save(){

@@ -4,6 +4,8 @@ require_once "models/Producto.php";
 class ProductoController{
 
     public function index(){
+        $producto = new Producto();
+        $productos = $producto -> getRandom();
         require_once "views/producto/productosDestacados.php";
     }
     public function gestion(){
@@ -42,6 +44,16 @@ class ProductoController{
         $producto->save();
         header('Location:'.BASE_URL.'/producto/gestion');
 
+    }
+    public function view(){
+        if(!$this->checkEditAndDelete()){
+            var_dump($_GET);
+
+            return false;
+        }
+        $producto = new Producto();
+        $prod = $producto->findById($_GET['id']);
+        require_once 'views/producto/view.php';
     }
 
     public function edit(){
