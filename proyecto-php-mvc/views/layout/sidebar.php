@@ -1,4 +1,14 @@
 <aside id="lateral">
+                <div id="carrito">
+                    <h3>Mi carrito</h3>
+                    <ul>
+                        <li><a href="<?=BASE_URL?>/carrito/index">Ver el carrito</a></li>
+                        <li><a href="<?=BASE_URL?>/carrito/index">Productos totales (<?=Utils::statsCarrito()['count']?>)</a></li>
+                        <li><a href="<?=BASE_URL?>/carrito/index">Total (<?=Utils::statsCarrito()['total']?> €)</a></li>
+
+
+                    </ul>
+                </div>
                 <div id="login" class="block_aside">
                 <?php if(!isset($_SESSION['login']) || $_SESSION['login'] == 'failed' ): ?>
                     <h3>Entrar en la web</h3>

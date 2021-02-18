@@ -7,6 +7,6 @@
         <div class="data">
             <p class="description"><?=$prod->descripcion;?></p>
             <p class="price"><?=$prod->precio;?></p>
-            <a href="#" class="button">Comprar</a>
+            <a href="<?=BASE_URL.'/carrito/add&id='.$prod->id?>" class="button">Comprar</a>
         </div>
 <?php endif; ?>
