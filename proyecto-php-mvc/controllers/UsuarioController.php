@@ -41,6 +41,7 @@ class UsuarioController{
         $login= $usuario->login($usuario->getEmail(),$_POST['password']);
         if($login){
             $_SESSION['login'] = 'successed';
+            $_SESSION['identity'] = $login;
             if($login->rol =='admin'){
                 $_SESSION['admin'] = true;
             }

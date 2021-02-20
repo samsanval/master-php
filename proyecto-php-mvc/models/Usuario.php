@@ -93,11 +93,9 @@ class Usuario{
     }
 
     public function login($email, $password){
-        $sql = "SELECT nombre, password, rol FROM usuarios WHERE email='$email'";
+        $sql = "SELECT id, nombre, password, rol FROM usuarios WHERE email='$email'";
         $login = $this->db->query($sql);
-        var_dump($login);
         if($login){
-            var_dump($login);
             $countObject = $login->fetch_object();
             var_dump($password);
             $verify = password_verify($password,$countObject->password);

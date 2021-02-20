@@ -8,6 +8,13 @@ class Utils{
         }
         return $session;
     }
+
+    public static function isLogged(){
+        if(!isset($_SESSION['identity'])){
+            header('Location:'.BASE_URL);
+        }
+        return true;
+    }
     public static function isAdmin(){
         if(!isset($_SESSION['admin'])){
             header('Location:'.BASE_URL);
