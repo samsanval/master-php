@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
+
+    $images = Image::all();
+    foreach($images as $image)
+    {
+       echo($image->user->name.' '.$image->user->surname. '<br/>');
+       foreach($image->comments as $comment)
+       {
+           echo($comment->content);
+       }
+    }
+    die();
     return view('welcome');
 });
