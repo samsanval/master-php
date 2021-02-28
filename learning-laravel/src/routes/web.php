@@ -32,6 +32,20 @@ Route::post('/receiveForm', '\App\Http\Controllers\PeliculaController@receiveFor
 
 //Route Resource
 Route::resource('usuario','\App\Http\Controllers\UsuarioController');
+
+//Rutas fruta
+Route::group(array( 'prefix' => 'frutas'), function (){
+    Route::get('index','\App\Http\Controllers\FrutaController@index');
+    Route::get('detail/{id}','\App\Http\Controllers\FrutaController@detail');
+    Route::get('crear', '\App\Http\Controllers\FrutaController@create');
+    Route::post('save', '\App\Http\Controllers\FrutaController@save');
+    Route::get('delete/{id}','\App\Http\Controllers\FrutaController@delete');
+    Route::get('edit/{id}','\App\Http\Controllers\FrutaController@edit');
+    Route::post('update/{id}', '\App\Http\Controllers\FrutaController@update');
+
+
+
+});
 /*
 Route::get('/mostrarFecha', function () {
     return view('showdate', array(
