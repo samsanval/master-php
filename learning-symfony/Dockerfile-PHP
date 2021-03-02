@@ -1,23 +1,16 @@
-FROM php:fpm-stretch
-ARG user
-ARG uid
+FROM php:7.4-fpm
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
-    zlib1g-dev \
-    libxml2-dev \
+RUN apt-get update && apt-get install -y zlib1g-dev git\
+    zip \
+    libpq-dev \
+    libicu-dev \
     libzip-dev \
+    && docker-php-ext-install opcache pdo pdo_pgsql pgsql \
+    && pecl install apcu \
     && docker-php-ext-install \
         zip \
-        intl \
-        mysqli \
-        pdo pdo_mysql
-
-RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-COPY symfony /var/www/symfony
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
-COPY --chown=$user:$user . /var/www
-USER $user
+        intl
 WORKDIR /var/www/symfony
+RUN curl -sS https://getcomposer.org/installer.phar -o /usr/bin/composer && chmod +x /usr/bin/composer
+RUN curl -sS https://get.symfony.com/cli/installer | bash
+RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
