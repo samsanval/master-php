@@ -17,7 +17,7 @@ use App\Models\Image;
 
 Route::get('/', function () {
 
-    $images = Image::all();
+   /* $images = Image::all();
     foreach($images as $image)
     {
        echo($image->user->name.' '.$image->user->surname. '<br/>');
@@ -26,6 +26,10 @@ Route::get('/', function () {
            echo($comment->content);
        }
     }
-    die();
+    die();*/
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
