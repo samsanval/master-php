@@ -33,3 +33,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/config','\App\Http\Controllers\UserController@config')->name('config');
+Route::get('/user/avatar/{filename}','\App\Http\Controllers\UserController@getImage')->name('user.avatar');
+Route::post('/user/edit','\App\Http\Controllers\UserController@update')->name('user.edit');
