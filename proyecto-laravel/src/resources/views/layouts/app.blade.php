@@ -53,8 +53,8 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Subir imagenes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('image.create')}}">Subir imagenes</a></li>
                             <li>
                                 @include('includes.avatar')
                             </li>
@@ -64,7 +64,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu-right" aria-labe lledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -36,3 +36,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/config','\App\Http\Controllers\UserController@config')->name('config');
 Route::get('/user/avatar/{filename}','\App\Http\Controllers\UserController@getImage')->name('user.avatar');
 Route::post('/user/edit','\App\Http\Controllers\UserController@update')->name('user.edit');
+Route::get('/upload_image','\App\Http\Controllers\ImageController@create')->name('image.create');
+Route::post('/image/save','\App\Http\Controllers\ImageController@save')->name('image.save');
+Route::get('image/file/{filename}','\App\Http\Controllers\ImageController@getImage')->name('image.get');
+Route::get('image/{id}','\App\Http\Controllers\ImageController@detail')->name('image.detail');
+

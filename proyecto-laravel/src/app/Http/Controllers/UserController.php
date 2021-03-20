@@ -49,9 +49,9 @@ class UserController extends Controller
         return redirect()->route('config');
 
     }
-    public function getImage($fileName)
+    public function getImage($filename)
     {
-        $file = Storage::disk('users')->get($fileName);
+        $file = Storage::disk('users')->get($filename);
         return new Response($file,200);
     }
 }
