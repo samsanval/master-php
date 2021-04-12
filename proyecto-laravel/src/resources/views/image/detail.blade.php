@@ -5,7 +5,7 @@
 </head>
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center pub_image_detail">
             <div class="col-md-10">
                     <div class="card pub_image">
                         <div class="card-header">{{$image->user->name.' '.$image->user->username}}
@@ -30,9 +30,30 @@
                                 {{$image->created_at}}
                                 <p>{{$image->description}}</p>
                             </div>
-                            <a href="" class="btn btn-warning">
-                                Comentarios
-                            </a>
+                            <div class="clearfix"></div>
+                            <div class="comments">
+                                <h2>Comentarios  ({{count($image->comments)}})</h2>
+                                @foreach($image->comments as $comment)
+                                    <div class="comment">
+                                        <span class="nickname">{{'@'.$image->user->nick}}</span>
+                                        <p>
+                                            {{$comment->content}}
+                                        </p>
+                                        <a class="btn btn-danger" href="{{route('comment.delete',['id'=> $comment->id])}}">Eliminar comentario</a>
+                                    </div>
+                                @endforeach
+                                <form method="POST" action="{{route('comment.save')}}">
+                                    @csrf
+                                    <input type="hidden" name="image_id" value="{{$image->id}}"/>
+                                    <p>
+                                        <textarea required name="content" class="form-control">
+                                        </textarea>
+
+                                    </p>
+                                    <button type="submit" class="btn btn-success">Enviar</button>
+                                </form>
+                                <hr/>
+                            </div>
                         </div>
                     </div>
             </div>

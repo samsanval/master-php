@@ -40,4 +40,6 @@ Route::get('/upload_image','\App\Http\Controllers\ImageController@create')->name
 Route::post('/image/save','\App\Http\Controllers\ImageController@save')->name('image.save');
 Route::get('image/file/{filename}','\App\Http\Controllers\ImageController@getImage')->name('image.get');
 Route::get('image/{id}','\App\Http\Controllers\ImageController@detail')->name('image.detail');
+Route::post('/comment/save','\App\Http\Controllers\CommentController@save')->name('comment.save');
+Route::get('/comment/delete/{id}','\App\Http\Controllers\CommentController@delete')->name('comment.delete');
 
