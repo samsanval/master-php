@@ -42,4 +42,5 @@ Route::get('image/file/{filename}','\App\Http\Controllers\ImageController@getIma
 Route::get('image/{id}','\App\Http\Controllers\ImageController@detail')->name('image.detail');
 Route::post('/comment/save','\App\Http\Controllers\CommentController@save')->name('comment.save');
 Route::get('/comment/delete/{id}','\App\Http\Controllers\CommentController@delete')->name('comment.delete');
-
+Route::get('/like/{id}','\App\Http\Controllers\LikeController@like')->name('like.save');
+Route::get('/dislike/{id}','\App\Http\Controllers\LikeController@dislike')->name('like.delete');
