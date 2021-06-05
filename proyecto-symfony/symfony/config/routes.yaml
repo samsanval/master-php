@@ -1,0 +1,11 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+tasks:
+  path: /tasks
+  controller: App\Controller\TaskController::index
+logout:
+  path: /logout
+index:
+  path: /
+  controller: App\Controller\TaskController::index
